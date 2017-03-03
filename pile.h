@@ -21,4 +21,6 @@ int sommet(Pile);
 int estVide(Pile);
 int estPlein(Pile);
 
+void afficherPile(Pile p);
+
 #endif //PROJECT_PILE_H

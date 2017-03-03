@@ -40,9 +40,22 @@ int sommet(Pile p)
 }
 int estVide(Pile p)
 {
-    return (p->size == 0);
+    return (p->size <= 0);
 }
 int estPlein(Pile p)
 {
-    return (p->size == p->max);
+    return (p->size >= p->max);
+}
+
+void afficherPile(Pile p)
+{
+    puts("-- Debug Pile --");
+    printf("\tSize %d - Max : %d\n", p->size, p->max);
+    printf("\tData : ");
+    int i;
+    for(i=0;i < p->size; i++)
+    {
+        printf("%d ", p->data[i]);
+    }
+    printf("<= Head\n");
 }
