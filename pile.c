@@ -13,33 +13,28 @@ Pile initialiser(int taille)
     p->max = taille;
     p->size = 0;
 
-    malcx(p->data, sizeof(void *) * taille, "Impossible d'allouer la lc de la pile")
+    malcx(p->data, sizeof(int) * taille, "Impossible d'allouer la lc de la pile")
 
     return p;
 }
 
-void liberer(Pile p, void (*free_data)(void *))
+void liberer(Pile p)
 {
-    while (!estVide(p))
-    {
-        free_data(depiler(p));
-    }
-
     free(p->data);
     free(p);
 }
 
-void empiler(Pile p, void * data){
-    p->data[p->size] = data;
+void empiler(Pile p, int val){
+    p->data[p->size] = val;
     p->size++;
 }
-void * depiler(Pile p)
+int depiler(Pile p)
 {
     p->size--;
     return p->data[p->size];
 }
 
-void * sommet(Pile p)
+int sommet(Pile p)
 {
     return p->data[p->size - 1];
 }

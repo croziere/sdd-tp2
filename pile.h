@@ -8,16 +8,16 @@
 typedef struct pile {
     int max;
     int size;
-    void ** data;
+    int * data;
 }pile_t, *Pile;
 
 Pile initialiser(int);
-void liberer(Pile, void (*)(void *));
+void liberer(Pile);
 
-void empiler(Pile, void *);
-void * depiler(Pile);
+void empiler(Pile, int);
+int depiler(Pile);
 
-void * sommet(Pile);
+int sommet(Pile);
 int estVide(Pile);
 int estPlein(Pile);
 
