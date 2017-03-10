@@ -5,22 +5,25 @@
 #ifndef PROJECT_PILE_H
 #define PROJECT_PILE_H
 
-typedef struct pile {
-    int max;
-    int size;
-    int * data;
-}pile_t, *Pile;
+typedef int * pile_data_t;
 
-Pile pile_initialiser(int);
-void pile_liberer(Pile);
+typedef struct pile
+{
+    int             max;
+    int             size;
+    pile_data_t   * data;
+}pile_t, * Pile;
 
-void pile_empiler(Pile, int);
-int pile_depiler(Pile);
+Pile            pile_initialiser(int);
+void            pile_liberer(Pile);
 
-int pile_sommet(Pile);
-int pile_est_vide(Pile);
-int pile_est_plein(Pile);
+void            pile_empiler(Pile, pile_data_t);
+pile_data_t     pile_depiler(Pile);
 
-void pile_afficher_pile(Pile p);
+pile_data_t     pile_sommet(Pile);
+int             pile_est_vide(Pile);
+int             pile_est_pleine(Pile);
+
+void            pile_afficher_pile(Pile p);
 
 #endif //PROJECT_PILE_H

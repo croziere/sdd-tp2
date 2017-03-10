@@ -10,7 +10,7 @@ Pile pile_initialiser(int taille)
     p->max = taille;
     p->size = 0;
 
-    malcx(p->data, sizeof(int) * taille, "Impossible d'allouer la lc de la pile")
+    malcx(p->data, sizeof(pile_data_t) * taille, "Impossible d'allouer la lc de la pile")
 
     return p;
 }
@@ -21,25 +21,27 @@ void pile_liberer(Pile p)
     free(p);
 }
 
-void pile_empiler(Pile p, int val){
+void pile_empiler(Pile p, pile_data_t val){
     p->data[p->size] = val;
     p->size++;
 }
-int pile_depiler(Pile p)
+pile_data_t pile_depiler(Pile p)
 {
     p->size--;
     return p->data[p->size];
 }
 
-int pile_sommet(Pile p)
+pile_data_t pile_sommet(Pile p)
 {
     return p->data[p->size - 1];
 }
+
 int pile_est_vide(Pile p)
 {
     return (p->size <= 0);
 }
-int pile_est_plein(Pile p)
+
+int pile_est_pleine(Pile p)
 {
     return (p->size >= p->max);
 }
