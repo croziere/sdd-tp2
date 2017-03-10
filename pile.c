@@ -1,13 +1,10 @@
-//
-// Created by Benjamin Rozière on 03/03/2017.
-//
 
 #include "pile.h"
 #include "helper.h"
 
-Pile initialiser(int taille)
+Pile pile_initialiser(int taille)
 {
-    Pile p = null;
+    Pile p = NULL;
     malcx(p, sizeof(pile_t), "Impossible d'allouer la pile")
 
     p->max = taille;
@@ -18,36 +15,36 @@ Pile initialiser(int taille)
     return p;
 }
 
-void liberer(Pile p)
+void pile_liberer(Pile p)
 {
     free(p->data);
     free(p);
 }
 
-void empiler(Pile p, int val){
+void pile_empiler(Pile p, int val){
     p->data[p->size] = val;
     p->size++;
 }
-int depiler(Pile p)
+int pile_depiler(Pile p)
 {
     p->size--;
     return p->data[p->size];
 }
 
-int sommet(Pile p)
+int pile_sommet(Pile p)
 {
     return p->data[p->size - 1];
 }
-int estVide(Pile p)
+int pile_est_vide(Pile p)
 {
     return (p->size <= 0);
 }
-int estPlein(Pile p)
+int pile_est_plein(Pile p)
 {
     return (p->size >= p->max);
 }
 
-void afficherPile(Pile p)
+void pile_afficher_pile(Pile p)
 {
     puts("-- Debug Pile --");
     printf("\tSize %d - Max : %d\n", p->size, p->max);

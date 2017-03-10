@@ -11,16 +11,16 @@ typedef struct pile {
     int * data;
 }pile_t, *Pile;
 
-Pile initialiser(int);
-void liberer(Pile);
+Pile pile_initialiser(int);
+void pile_liberer(Pile);
 
-void empiler(Pile, int);
-int depiler(Pile);
+void pile_empiler(Pile, int);
+int pile_depiler(Pile);
 
-int sommet(Pile);
-int estVide(Pile);
-int estPlein(Pile);
+int pile_sommet(Pile);
+int pile_est_vide(Pile);
+int pile_est_plein(Pile);
 
-void afficherPile(Pile p);
+void pile_afficher_pile(Pile p);
 
 #endif //PROJECT_PILE_H

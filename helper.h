@@ -13,6 +13,4 @@
 
 #define clrscr printf("\033[H\033[2J")
 
-#define null NULL
-
 #endif //TP2_HELPER_H
